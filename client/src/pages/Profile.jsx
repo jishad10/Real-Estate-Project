@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function App() {
+export default function Profile() {
   return (
     <div>
-      app
+      Profile
+      ami
     </div>
   )
 }
