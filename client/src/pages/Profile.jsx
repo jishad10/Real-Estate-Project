@@ -16,7 +16,7 @@ export default function Profile() {
   const [fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
 
-
+  
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
