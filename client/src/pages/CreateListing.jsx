@@ -8,7 +8,6 @@ import {
 import { app } from '../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 export default function CreateListing() {
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -37,7 +36,6 @@ export default function CreateListing() {
       setUploading(true);
       setImageUploadError(false);
       const promises = [];
-
       for (let i = 0; i < files.length; i++) {
         promises.push(storeImage(files[i]));
       }
@@ -59,7 +57,6 @@ export default function CreateListing() {
       setUploading(false);
     }
   };
-
   const storeImage = async (file) => {
     return new Promise((resolve, reject) => {
       const storage = getStorage(app);
@@ -84,14 +81,12 @@ export default function CreateListing() {
       );
     });
   };
-
   const handleRemoveImage = (index) => {
     setFormData({
       ...formData,
       imageUrls: formData.imageUrls.filter((_, i) => i !== index),
     });
   };
-
   const handleChange = (e) => {
     if (e.target.id === 'sale' || e.target.id === 'rent') {
       setFormData({
@@ -99,7 +94,6 @@ export default function CreateListing() {
         type: e.target.id,
       });
     }
-
     if (
       e.target.id === 'parking' ||
       e.target.id === 'furnished' ||
@@ -110,7 +104,6 @@ export default function CreateListing() {
         [e.target.id]: e.target.checked,
       });
     }
-
     if (
       e.target.type === 'number' ||
       e.target.type === 'text' ||
@@ -122,7 +115,6 @@ export default function CreateListing() {
       });
     }
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -281,6 +273,7 @@ export default function CreateListing() {
               />
               <div className='flex flex-col items-center'>
                 <p>Regular price</p>
+                <span className='text-xs'>($ / month)</span>
                 {formData.type === 'rent' && (
                   <span className='text-xs'>($ / month)</span>
                 )}
@@ -300,6 +293,7 @@ export default function CreateListing() {
                 />
                 <div className='flex flex-col items-center'>
                   <p>Discounted price</p>
+                  <span className='text-xs'>($ / month)</span>
 
                   {formData.type === 'rent' && (
                     <span className='text-xs'>($ / month)</span>
