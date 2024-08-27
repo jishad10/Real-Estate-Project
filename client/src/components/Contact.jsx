@@ -8,6 +8,7 @@ export default function Contact({ listing }) {
     setMessage(e.target.value);
   };
 
+  
   useEffect(() => {
     const fetchLandlord = async () => {
       try {

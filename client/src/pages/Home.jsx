@@ -46,6 +46,8 @@ export default function Home() {
     };
     fetchOfferListings();
   }, []);
+
+  
   return (
     <div>
       {/* top */}
