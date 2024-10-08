@@ -1,1 +1,1 @@
-Real estate project with React & tailwind css
+Real estate project with Mern Stack & tailwind css
