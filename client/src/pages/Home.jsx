@@ -6,6 +6,7 @@ import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
 import ListingItem from '../components/ListingItem';
 
+
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
@@ -17,8 +18,8 @@ export default function Home() {
       try {
         const res = await fetch('/api/listing/get?offer=true&limit=4');
         const data = await res.json();
-        setOfferListings(data);
-        fetchRentListings();
+        setOfferListings(data);  //er maddome offerList ta set hoi e gece
+        fetchRentListings(); //offerListing er por Rent er ta kaj korbe
       } catch (error) {
         console.log(error);
       }
@@ -47,7 +48,7 @@ export default function Home() {
     fetchOfferListings();
   }, []);
 
-  
+
   return (
     <div>
       {/* top */}
@@ -90,8 +91,8 @@ export default function Home() {
       </Swiper>
 
       {/* listing results for offer, sale and rent */}
-
       <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10'>
+        
         {offerListings && offerListings.length > 0 && (
           <div className=''>
             <div className='my-3'>
@@ -105,6 +106,7 @@ export default function Home() {
             </div>
           </div>
         )}
+
         {rentListings && rentListings.length > 0 && (
           <div className=''>
             <div className='my-3'>
@@ -118,6 +120,7 @@ export default function Home() {
             </div>
           </div>
         )}
+
         {saleListings && saleListings.length > 0 && (
           <div className=''>
             <div className='my-3'>

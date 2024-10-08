@@ -153,7 +153,7 @@ export default function CreateListing() {
     }
   };
 
-  
+
   return (
     <main className='p-3 max-w-4xl mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>
@@ -312,6 +312,7 @@ export default function CreateListing() {
             )}
           </div>
         </div>
+
         <div className='flex flex-col flex-1 gap-4'>
           <p className='font-semibold'>
             Images:

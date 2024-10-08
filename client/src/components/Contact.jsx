@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 export default function Contact({ listing }) {
   const [landlord, setLandlord] = useState(null);
   const [message, setMessage] = useState('');
+
   const onChange = (e) => {
     setMessage(e.target.value);
   };
-
   
   useEffect(() => {
     const fetchLandlord = async () => {
@@ -22,7 +22,6 @@ export default function Contact({ listing }) {
     fetchLandlord();
   }, [listing.userRef]);
 
-  
   return (
     <>
       {landlord && (

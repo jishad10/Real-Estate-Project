@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ListingItem from '../components/ListingItem';
 
+
 export default function Search() {
   const navigate = useNavigate();
 
@@ -17,7 +18,8 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
   const [showMore, setShowMore] = useState(false);
-
+  
+  //jate ko re url er search golo search side bar e chole ase + data fetching
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');
@@ -65,7 +67,6 @@ export default function Search() {
     fetchListings();
   }, [location.search]);
 
-
   const handleChange = (e) => {
     if (
       e.target.id === 'all' ||
@@ -100,7 +101,6 @@ export default function Search() {
     }
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams();
@@ -115,7 +115,6 @@ export default function Search() {
     navigate(`/search?${searchQuery}`);
   };
 
-  
   const onShowMoreClick = async () => {
     const numberOfListings = listings.length;
     const startIndex = numberOfListings;
@@ -241,7 +240,6 @@ export default function Search() {
         </form>
       </div>
 
-
       <div className='flex-1'>
         <h1 className='text-3xl font-semibold border-b p-3 text-slate-700 mt-5'>
           Listing results:
@@ -257,11 +255,11 @@ export default function Search() {
           )}
 
           {!loading &&
-            listings &&
+            listings &&    //mapping korle unique key laagbe...//er porer ta listing ke props akare patai dicchi jate child recieve korte pa re
             listings.map((listing) => (
               <ListingItem key={listing._id} listing={listing} />
             ))}
-
+          
           {showMore && (
             <button
               onClick={onShowMoreClick}

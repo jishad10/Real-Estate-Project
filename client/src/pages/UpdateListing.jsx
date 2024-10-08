@@ -302,6 +302,7 @@ export default function CreateListing() {
                 )}
               </div>
             </div>
+
             {formData.offer && (
               <div className='flex items-center gap-2'>
                 <input
@@ -325,6 +326,7 @@ export default function CreateListing() {
             )}
           </div>
         </div>
+        
         <div className='flex flex-col flex-1 gap-4'>
           <p className='font-semibold'>
             Images:
